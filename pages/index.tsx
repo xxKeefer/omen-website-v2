@@ -1,8 +1,11 @@
-import { Heading, Text } from '@chakra-ui/react'
+import { Box, Heading, Text, VStack } from '@chakra-ui/react'
+import { BigBlockButton } from '@components'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
+    const router = useRouter()
     return (
         <>
             <Head>
@@ -14,16 +17,37 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main>
-                <Heading size="2xl">Omen RPG</Heading>
-                <Text>The story driven role playing game</Text>
-            </main>
-
-            <footer>
-                <Text size="sm">
-                    Ben Gorman, &copy; Copyright {new Date().getFullYear()}
-                </Text>
-            </footer>
+            <VStack h="100vh" paddingBlock={8}>
+                <Box as="main">
+                    <Heading size="4xl">Omen RPG</Heading>
+                    <Heading size="xl">
+                        The story driven role playing game
+                    </Heading>
+                </Box>
+                <VStack>
+                    <BigBlockButton
+                        text="Enchiridion (For Players)"
+                        subtext="a book containing essential information on a subject"
+                        onClick={() => router.push('/enchiridion')}
+                    />
+                    <BigBlockButton
+                        text="Compendium (For Game Masters)"
+                        subtext="a collection of concise but detailed information about a particular subject"
+                        onClick={() => router.push('/compendium')}
+                    />
+                    <BigBlockButton
+                        text="Chronicles (For Lore Junkies)"
+                        subtext="a written account of important or historical events in the order of their occurrence."
+                        onClick={() => router.push('/chronicles')}
+                    />
+                </VStack>
+                <Box h="full" />
+                <Box as="footer">
+                    <Text size="xs">
+                        Ben Gorman, &copy; Copyright {new Date().getFullYear()}
+                    </Text>
+                </Box>
+            </VStack>
         </>
     )
 }
