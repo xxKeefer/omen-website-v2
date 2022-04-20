@@ -1,8 +1,16 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '@fontsource/lobster'
+import '@fontsource/poppins'
+import '@fontsource/share-tech-mono'
+
+import { ChakraProvider } from '@chakra-ui/react'
+import { OmenChakraTheme } from '@styles'
+import { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+    return (
+        <ChakraProvider theme={OmenChakraTheme}>
+            <Component {...pageProps} />
+        </ChakraProvider>
+    )
 }
-
 export default MyApp

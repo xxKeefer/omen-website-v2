@@ -1,0 +1,22 @@
+// Needs to be in a seperate file,
+// see: https://github.com/facebook/create-react-app/issues/8909
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@pages": ["pages/index"],
+            "@api": ["pages/api/index"],
+            "@styles": ["styles/index"],
+            "@components": ["components/index"],
+            "@interfaces": ["interfaces/index"],
+            "@constants": ["constants/index"],
+
+            "@pages/*": ["pages/*"],
+            "@api/*": ["pages/api/*"],
+            "@styles/*": ["styles/*"],
+            "@components/*": ["components/*"],
+            "@interfaces/*": ["interfaces/*"],
+            "@constants/*": ["constants/*"]
+        }
+    }
+}
