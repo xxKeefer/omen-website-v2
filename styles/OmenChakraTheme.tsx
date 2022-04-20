@@ -60,4 +60,17 @@ export const OmenChakraTheme = extendTheme({
             },
         },
     },
+    components: {
+        Button: {
+            variants: {
+                solid: {
+                    bg: 'pink.500',
+                    color: 'white',
+                    _hover: {
+                        bg: 'pink.700',
+                    },
+                },
+            },
+        },
+    },
 })
