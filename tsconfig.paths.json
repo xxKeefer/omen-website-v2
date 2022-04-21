@@ -1,4 +1,4 @@
-// Needs to be in a seperate file,
+// Needs to be in a separate file,
 // see: https://github.com/facebook/create-react-app/issues/8909
 {
     "compilerOptions": {
@@ -10,13 +10,15 @@
             "@components": ["components/index"],
             "@interfaces": ["interfaces/index"],
             "@constants": ["constants/index"],
+            "@utils": ["constants/index"],
 
             "@pages/*": ["pages/*"],
             "@api/*": ["pages/api/*"],
             "@styles/*": ["styles/*"],
             "@components/*": ["components/*"],
             "@interfaces/*": ["interfaces/*"],
-            "@constants/*": ["constants/*"]
+            "@constants/*": ["constants/*"],
+            "@utils/*": ["constants/*"]
         }
     }
 }
