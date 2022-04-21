@@ -1,16 +1,15 @@
 import { Box, Heading, Link, Text, VStack } from '@chakra-ui/react'
+import { PageLink, PageMeta } from '@interfaces'
 import { promises as fs } from 'fs'
 import grayMatter from 'gray-matter'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import path from 'path'
+import { byOrderThenRank } from 'utils'
 
 type Props = {
-    pages: {
-        title: string
-        path: string
-    }[]
+    pages: PageLink[]
 }
 
 const EnchiridionMain: NextPage<Props> = ({ pages }) => {
@@ -34,7 +33,7 @@ const EnchiridionMain: NextPage<Props> = ({ pages }) => {
                     </Heading>
                 </Box>
                 <VStack>
-                    {pages.map(({ title, path }) => (
+                    {pages.sort(byOrderThenRank).map(({ title, path }) => (
                         <Link key={path} onClick={() => router.push(path)}>
                             {title}
                         </Link>
@@ -82,6 +81,8 @@ export const getStaticProps: GetStaticProps = async () => {
         return {
             path: `/${book}/${section}`,
             title: data.title,
+            order: data.order,
+            rank: data.rank,
         }
     })
 
