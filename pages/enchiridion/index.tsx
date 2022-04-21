@@ -1,4 +1,5 @@
 import { Box, Heading, Link, Text, VStack } from '@chakra-ui/react'
+import { MainLayout } from '@components'
 import { PageLink, PageMeta } from '@interfaces'
 import { promises as fs } from 'fs'
 import grayMatter from 'gray-matter'
@@ -24,8 +25,7 @@ const EnchiridionMain: NextPage<Props> = ({ pages }) => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
-            <VStack h="100vh" paddingBlock={8}>
+            <MainLayout>
                 <Box as="main">
                     <Heading size="4xl">Enchiridion</Heading>
                     <Heading size="xl">
@@ -46,7 +46,7 @@ const EnchiridionMain: NextPage<Props> = ({ pages }) => {
                         Ben Gorman, &copy; Copyright {new Date().getFullYear()}
                     </Text>
                 </Box>
-            </VStack>
+            </MainLayout>
         </>
     )
 }

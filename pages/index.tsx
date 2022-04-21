@@ -1,5 +1,6 @@
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 import { BigBlockButton } from '@components'
+import { ROUTES } from '@constants'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -28,17 +29,17 @@ const Home: NextPage = () => {
                     <BigBlockButton
                         text="Enchiridion (For Players)"
                         subtext="a book containing essential information on a subject"
-                        onClick={() => router.push('/enchiridion')}
+                        onClick={() => router.push(ROUTES.ENCHIRIDION)}
                     />
                     <BigBlockButton
                         text="Compendium (For Game Masters)"
                         subtext="a collection of concise but detailed information about a particular subject"
-                        onClick={() => router.push('/compendium')}
+                        onClick={() => router.push(ROUTES.COMPENDIUM)}
                     />
                     <BigBlockButton
                         text="Chronicles (For Lore Junkies)"
                         subtext="a written account of important or historical events in the order of their occurrence."
-                        onClick={() => router.push('/chronicles')}
+                        onClick={() => router.push(ROUTES.CHRONICLES)}
                     />
                 </VStack>
                 <Box h="full" />
