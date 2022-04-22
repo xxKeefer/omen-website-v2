@@ -31,14 +31,14 @@ const CompendiumMain: NextPage<Props> = ({ pages }) => {
                     <Heading size="xl">
                         The guide for game masters to get to know Omen
                     </Heading>
+                    <VStack>
+                        {pages.sort(byOrderThenRank).map(({ title, path }) => (
+                            <Link key={path} onClick={() => router.push(path)}>
+                                {title}
+                            </Link>
+                        ))}
+                    </VStack>
                 </Box>
-                <VStack>
-                    {pages.sort(byOrderThenRank).map(({ title, path }) => (
-                        <Link key={path} onClick={() => router.push(path)}>
-                            {title}
-                        </Link>
-                    ))}
-                </VStack>
 
                 <Box h="full" />
                 <Box as="footer">
