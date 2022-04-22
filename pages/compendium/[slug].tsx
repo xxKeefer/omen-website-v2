@@ -1,22 +1,12 @@
 import { BillBoard, MainLayout } from '@components'
-import { PageMeta } from '@interfaces'
+import { SlugPageProps } from '@interfaces'
 import { MDXWrapper, OmenMDXStyle } from '@styles'
-import { promises as fs } from 'fs'
-import grayMatter from 'gray-matter'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
-import path from 'path'
+import { MDXRemote } from 'next-mdx-remote'
+import { slugPagePaths, slugPageProps } from 'utils/serverFunctions'
 
-type Props = {
-    page: {
-        content: MDXRemoteSerializeResult<Record<string, unknown>>
-        data: PageMeta
-    }
-}
-
-const CompendiumPage: NextPage<Props> = ({ page }) => {
+const CompendiumPage: NextPage<SlugPageProps> = ({ page, links }) => {
     const { content, data } = page
     return (
         <>
@@ -25,7 +15,7 @@ const CompendiumPage: NextPage<Props> = ({ page }) => {
                 <meta name="description" content={data.title} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <MainLayout>
+            <MainLayout links={links}>
                 <MDXWrapper>
                     <MDXRemote
                         {...content}
@@ -40,44 +30,14 @@ const CompendiumPage: NextPage<Props> = ({ page }) => {
 export default CompendiumPage
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const compendiumDirectory = path.join(
-        process.cwd(),
-        'markdown',
-        'compendium',
-    )
-    const filenames = await fs.readdir(compendiumDirectory)
-    const file = filenames.find(
-        (filename) => filename === `${params?.slug}.mdx`,
-    )
-    if (!file) return { props: { page: {} } }
-    const filepath = path.join(compendiumDirectory, file)
-    const fileContents = await fs.readFile(filepath, 'utf8')
-    const { content, data } = grayMatter(fileContents)
-    const mdxSource = await serialize(content)
-
+    const page = await slugPageProps('compendium', params)
     return {
-        props: {
-            page: {
-                content: mdxSource,
-                data,
-            },
-        },
+        props: page,
     }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const compendiumDirectory = path.join(
-        process.cwd(),
-        'markdown',
-        'compendium',
-    )
-    const filenames = await fs.readdir(compendiumDirectory)
-    const paths = filenames.map((filename) => {
-        const slug = filename.replace('.mdx', '')
-        return {
-            params: { slug },
-        }
-    })
+    const paths = await slugPagePaths('compendium')
     return {
         paths,
         fallback: false,

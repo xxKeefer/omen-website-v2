@@ -1,22 +1,12 @@
 import { BillBoard, MainLayout } from '@components'
-import { PageMeta } from '@interfaces'
+import { SlugPageProps } from '@interfaces'
 import { MDXWrapper, OmenMDXStyle } from '@styles'
-import { promises as fs } from 'fs'
-import grayMatter from 'gray-matter'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
-import path from 'path'
+import { MDXRemote } from 'next-mdx-remote'
+import { slugPagePaths, slugPageProps } from 'utils/serverFunctions'
 
-type Props = {
-    page: {
-        content: MDXRemoteSerializeResult<Record<string, unknown>>
-        data: PageMeta
-    }
-}
-
-const EnchiridionPage: NextPage<Props> = ({ page }) => {
+const EnchiridionPage: NextPage<SlugPageProps> = ({ page, links }) => {
     const { content, data } = page
     return (
         <>
@@ -25,7 +15,7 @@ const EnchiridionPage: NextPage<Props> = ({ page }) => {
                 <meta name="description" content={data.title} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <MainLayout>
+            <MainLayout links={links}>
                 <MDXWrapper>
                     <MDXRemote
                         {...content}
@@ -40,44 +30,15 @@ const EnchiridionPage: NextPage<Props> = ({ page }) => {
 export default EnchiridionPage
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const enchiridionDirectory = path.join(
-        process.cwd(),
-        'markdown',
-        'enchiridion',
-    )
-    const filenames = await fs.readdir(enchiridionDirectory)
-    const file = filenames.find(
-        (filename) => filename === `${params?.slug}.mdx`,
-    )
-    if (!file) return { props: { page: {} } }
-    const filepath = path.join(enchiridionDirectory, file)
-    const fileContents = await fs.readFile(filepath, 'utf8')
-    const { content, data } = grayMatter(fileContents)
-    const mdxSource = await serialize(content)
+    const page = await slugPageProps('enchiridion', params)
 
     return {
-        props: {
-            page: {
-                content: mdxSource,
-                data,
-            },
-        },
+        props: page,
     }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const enchiridionDirectory = path.join(
-        process.cwd(),
-        'markdown',
-        'enchiridion',
-    )
-    const filenames = await fs.readdir(enchiridionDirectory)
-    const paths = filenames.map((filename) => {
-        const slug = filename.replace('.mdx', '')
-        return {
-            params: { slug },
-        }
-    })
+    const paths = await slugPagePaths('enchiridion')
     return {
         paths,
         fallback: false,

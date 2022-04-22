@@ -9,9 +9,6 @@ export type PageMeta = {
     rank: number
 }
 
-export type PageLink = Pick<
-    PageMeta,
-    'title' | 'order' | 'rank' | 'published'
-> & {
+export type PageLink = PageMeta & {
     path: string
 }

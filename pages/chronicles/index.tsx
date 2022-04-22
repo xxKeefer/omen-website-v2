@@ -1,19 +1,13 @@
 import { Box, Heading, Link, Text, VStack } from '@chakra-ui/react'
 import { MainLayout } from '@components'
-import { PageLink, PageMeta } from '@interfaces'
-import { promises as fs } from 'fs'
-import grayMatter from 'gray-matter'
+import { MainPageProps } from '@interfaces'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import path from 'path'
 import { byOrderThenRank } from 'utils'
+import { mainPageProps } from 'utils/serverFunctions'
 
-type Props = {
-    pages: PageLink[]
-}
-
-const ChroniclesMain: NextPage<Props> = ({ pages }) => {
+const ChroniclesMain: NextPage<MainPageProps> = ({ pages }) => {
     const router = useRouter()
     return (
         <>
@@ -26,19 +20,12 @@ const ChroniclesMain: NextPage<Props> = ({ pages }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <MainLayout>
+            <MainLayout links={pages}>
                 <Box as="main">
                     <Heading size="4xl">Chronicles</Heading>
                     <Heading size="xl">
                         The tales and stories told in Omen
                     </Heading>
-                    <VStack>
-                        {pages.sort(byOrderThenRank).map(({ title, path }) => (
-                            <Link key={path} onClick={() => router.push(path)}>
-                                {title}
-                            </Link>
-                        ))}
-                    </VStack>
                 </Box>
 
                 <Box h="full" />
@@ -55,37 +42,7 @@ const ChroniclesMain: NextPage<Props> = ({ pages }) => {
 export default ChroniclesMain
 
 export const getStaticProps: GetStaticProps = async () => {
-    const chroniclesDirectory = path.join(
-        process.cwd(),
-        'markdown',
-        'chronicles',
-    )
-    const filenames = await fs.readdir(chroniclesDirectory)
-    const files = await Promise.all(
-        filenames.map(async (filename) => {
-            const filepath = path.join(chroniclesDirectory, filename)
-            const fileContents = await fs.readFile(filepath, 'utf8')
-            const { content, data } = grayMatter(fileContents)
-            return {
-                filename,
-                content,
-                data,
-            }
-        }),
-    )
-
-    const pages = files.map((file) => {
-        const { filename, data } = file
-        const book = data.book.toLowerCase()
-        const section = filename.replace('.mdx', '')
-
-        return {
-            path: `/${book}/${section}`,
-            title: data.title,
-            order: data.order,
-            rank: data.rank,
-        }
-    })
+    const pages = await mainPageProps('chronicles')
 
     return {
         props: { pages },

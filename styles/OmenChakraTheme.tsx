@@ -58,6 +58,17 @@ export const OmenChakraTheme = extendTheme({
             a: {
                 color: 'pink.500',
             },
+            div: {
+                '&::-webkit-scrollbar': {
+                    backgroundColor: 'teal.900',
+                    borderRadius: '15px',
+                    width: '10px !important',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    backgroundColor: 'pink.500',
+                    borderRadius: '15px',
+                },
+            },
         },
     },
     components: {
