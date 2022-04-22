@@ -75,6 +75,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const pages = files.map((file) => {
         const { filename, data } = file
+        console.log({ filename, data })
         const book = data.book.toLowerCase()
         const section = filename.replace('.mdx', '')
 

@@ -1,4 +1,5 @@
 export type PageMeta = {
+    published: boolean
     title: string
     slug: string
     chapter: string
@@ -8,6 +9,9 @@ export type PageMeta = {
     rank: number
 }
 
-export type PageLink = Pick<PageMeta, 'title' | 'order' | 'rank'> & {
+export type PageLink = Pick<
+    PageMeta,
+    'title' | 'order' | 'rank' | 'published'
+> & {
     path: string
 }

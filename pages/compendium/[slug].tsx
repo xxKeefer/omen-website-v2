@@ -1,5 +1,4 @@
-import { VStack } from '@chakra-ui/react'
-import { MainLayout } from '@components'
+import { BillBoard, MainLayout } from '@components'
 import { PageMeta } from '@interfaces'
 import { MDXWrapper, OmenMDXStyle } from '@styles'
 import { promises as fs } from 'fs'
@@ -30,8 +29,8 @@ const CompendiumPage: NextPage<Props> = ({ page }) => {
                 <MDXWrapper>
                     <MDXRemote
                         {...content}
-                        components={{ ...OmenMDXStyle }}
-                    ></MDXRemote>
+                        components={{ BillBoard, ...OmenMDXStyle }}
+                    />
                 </MDXWrapper>
             </MainLayout>
         </>
