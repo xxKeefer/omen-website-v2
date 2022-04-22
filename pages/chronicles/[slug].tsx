@@ -1,4 +1,4 @@
-import { BillBoard, MainLayout } from '@components'
+import { MainLayout } from '@components'
 import { SlugPageProps } from '@interfaces'
 import { MDXWrapper, OmenMDXStyle } from '@styles'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -17,10 +17,7 @@ const ChroniclesPage: NextPage<SlugPageProps> = ({ page, links }) => {
             </Head>
             <MainLayout links={links}>
                 <MDXWrapper>
-                    <MDXRemote
-                        {...content}
-                        components={{ BillBoard, ...OmenMDXStyle }}
-                    />
+                    <MDXRemote {...content} components={OmenMDXStyle} />
                 </MDXWrapper>
             </MainLayout>
         </>

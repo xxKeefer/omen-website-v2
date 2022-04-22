@@ -15,7 +15,7 @@ const DevPage: NextPage<MainPageProps> = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Box h="full" w="full" p="16">
-                <SpeechDialogue>
+                <SpeechDialogue title="Cool Cool Cool...">
                     <Bubble emoji="👑" talker="DM">
                         something coool and really long something coool and
                         really long something coool and really long something

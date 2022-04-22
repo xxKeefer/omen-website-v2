@@ -16,7 +16,13 @@ import {
     Tr,
     UnorderedList,
 } from '@chakra-ui/react'
-import { Callout, InlineDefine } from '@components'
+import {
+    BillBoard,
+    Bubble,
+    Callout,
+    InlineDefine,
+    SpeechDialogue,
+} from '@components'
 
 export const OmenMDXStyle = {
     h1: (props: any) => <Heading as="h1" fontSize="5xl" {...props} />,
@@ -57,8 +63,11 @@ export const OmenMDXStyle = {
     tfoot: (props: any) => (
         <Tfoot as="tfoot" borderColor="teal.300" {...props} />
     ),
-    Callout: (props: any) => <Callout {...props} />,
-    InlineDefine: (props: any) => <InlineDefine {...props} />,
+    Callout,
+    InlineDefine,
+    BillBoard,
+    SpeechDialogue,
+    Bubble,
 }
 
 export const MDXWrapper = (props: any) => (

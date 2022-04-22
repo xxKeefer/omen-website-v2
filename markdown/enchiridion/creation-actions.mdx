@@ -9,7 +9,7 @@ order: 2
 rank: 3
 ---
 
-import { Callout } from '@components'
+import { Callout, SpeechDialogue, Bubble } from '@components'
 
 # Creation Actions
 
@@ -177,19 +177,37 @@ Below are examples of Invention actions and they may work in practice. The first
 
 Creating a Scene Detail creates a Detail that exists anywhere it is applicable in the entire scene.
 
-Create a Scene detail
-"I light the building on fire"
-Player: Create a scene detail "Burning". Everything in the scene is on fire.
+<SpeechDialogue title='"I light the building on fire."'>
+    <Bubble emoji="🕺" talker="Player">
+        I light the building on fire, create the scene detail "Burning".
+        Everything in the scene is on fire.
+    </Bubble>
+    <Bubble right emoji="👑" talker="Game Master" color="teal.800">
+        Excellent, all characters who end their turn in a "Burning zone" take 1
+        damage.
+    </Bubble>
+</SpeechDialogue>
 
-DM: All characters who end their turn in a "Burning zone" take 1 damage.
-"I turn out the lights"
-Player: Create a Scene detail "Darkness Calls." The scene has a detail of darkness.
+<SpeechDialogue title='"I turn out the lights."'>
+    <Bubble emoji="🕺" talker="Player">
+        I cut the power to the lights and create the Scene detail "Darkness
+        Calls." The scene has a detail of darkness.
+    </Bubble>
+    <Bubble right emoji="👑" talker="Game Master" color="teal.800">
+        Awesome! Characters cannot see unless another detail allows them to.
+    </Bubble>
+</SpeechDialogue>
 
-DM: Character's cannot see unless another detail allows them to.
-"I cause a landslide"
-Player: Create a Scene detail "Landslide". The scene has difficult terrain.
-
-DM: Characters must pass a DC 8 Athletics roll to leave this zone
+<SpeechDialogue title='"I cause a landslide."'>
+    <Bubble emoji="🕺" talker="Player">
+        I the boulders down the mountainside and create the Scene detail
+        "Landslide". The scene has difficult terrain.
+    </Bubble>
+    <Bubble right emoji="👑" talker="Game Master" color="teal.800">
+        Hell Yeah! Characters must pass a DC 8 Athletics roll to leave this
+        zone.
+    </Bubble>
+</SpeechDialogue>
 
 #### Removing A Detail
 
