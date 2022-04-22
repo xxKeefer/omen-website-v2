@@ -12,6 +12,11 @@ type Props = {
 export const SidePanel = ({ links }: Props) => {
     const router = useRouter()
     const book = links[0].book
+    const chapters = [
+        ...Array.from(
+            new Set(links.sort(byOrderThenRank).map((link) => link.chapter)),
+        ),
+    ]
     return (
         <VStack width="20%" bg="gray.800">
             <Flex align="center" direction="column">
@@ -44,10 +49,24 @@ export const SidePanel = ({ links }: Props) => {
             </Flex>
             <Divider />
             <VStack overflowY="scroll" w="full" h="full">
-                {links.sort(byOrderThenRank).map(({ title, path }) => (
-                    <Link key={path} onClick={() => router.push(path)}>
-                        {title}
-                    </Link>
+                {chapters.map((chapter) => (
+                    <Box key={chapter} textAlign="left" w="full" pl="4">
+                        <Heading size="md" pt="4">
+                            {chapter}
+                        </Heading>
+                        <VStack align="flex-start" pl="4">
+                            {links
+                                .filter((link) => link.chapter === chapter)
+                                .map(({ title, path }) => (
+                                    <Link
+                                        key={path}
+                                        onClick={() => router.push(path)}
+                                    >
+                                        {title}
+                                    </Link>
+                                ))}
+                        </VStack>
+                    </Box>
                 ))}
             </VStack>
         </VStack>
