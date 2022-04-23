@@ -1,14 +1,11 @@
-import { Box, Heading, Link, Text, VStack } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import { MainLayout } from '@components'
 import { MainPageProps } from '@interfaces'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { byOrderThenRank } from 'utils'
 import { mainPageProps } from 'utils/serverFunctions'
 
 const ChroniclesMain: NextPage<MainPageProps> = ({ pages }) => {
-    const router = useRouter()
     return (
         <>
             <Head>
@@ -29,11 +26,6 @@ const ChroniclesMain: NextPage<MainPageProps> = ({ pages }) => {
                 </Box>
 
                 <Box h="full" />
-                <Box as="footer">
-                    <Text size="xs">
-                        Ben Gorman, &copy; Copyright {new Date().getFullYear()}
-                    </Text>
-                </Box>
             </MainLayout>
         </>
     )

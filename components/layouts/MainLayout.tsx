@@ -1,4 +1,5 @@
 import { Box, HStack, VStack } from '@chakra-ui/react'
+import { Footer } from '@components/Footer'
 import { PageLink } from '@interfaces'
 import React from 'react'
 
@@ -16,6 +17,7 @@ export const MainLayout = ({ children, links }: Props) => {
                 <SidePanel links={links} />
                 <VStack w="80%" maxH="100vh" overflowY="scroll">
                     {children}
+                    <Footer />
                 </VStack>
             </HStack>
         </Box>
