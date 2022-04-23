@@ -12,7 +12,7 @@ export const Callout = ({
     children,
     emoji,
     heading,
-    color = 'pink.500',
+    color = 'pink.900',
 }: Props) => {
     return (
         <Center justifyContent="left">
