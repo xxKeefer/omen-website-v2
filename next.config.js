@@ -16,6 +16,9 @@ const nextConfig = {
                     loader: '@mdx-js/loader',
                     /** @type {import('@mdx-js/loader').Options} */
                     options: {
+                        providerImportSource: '@mdx-js/react',
+                        outputFormat: 'function-body',
+                        useDynamicImport: true,
                         /* jsxImportSource: …, otherOptions… */
                     },
                 },

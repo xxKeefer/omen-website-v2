@@ -47,13 +47,15 @@ export const slugPageProps = async (
     const { content, data } = matter(fileContents)
     const mdxSource = await compile(content, {
         providerImportSource: '@mdx-js/react',
+        outputFormat: 'function-body',
+        useDynamicImport: true,
     })
 
     const links = await mainPageProps(directoryName)
 
     return {
         page: {
-            content: mdxSource,
+            content: String(mdxSource),
             data,
         },
         links,
