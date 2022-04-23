@@ -4,7 +4,7 @@ import React from 'react'
 type Props = {
     children?: React.ReactNode
     right?: boolean
-    talker: string
+    talker?: string
     emoji?: string
     color?: BackgroundProps['bg']
 }
@@ -49,14 +49,16 @@ export const Bubble = ({
                 >
                     {children}
                 </Text>
-                <Text
-                    fontSize="xs"
-                    m="2px !important"
-                    paddingInline="16px"
-                    alignSelf={right ? 'flex-end' : 'flex-start'}
-                >
-                    Sent by {talker}
-                </Text>
+                {talker && (
+                    <Text
+                        fontSize="xs"
+                        m="2px !important"
+                        paddingInline="16px"
+                        alignSelf={right ? 'flex-end' : 'flex-start'}
+                    >
+                        Sent by {talker}
+                    </Text>
+                )}
             </VStack>
         </Flex>
     )

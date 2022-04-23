@@ -182,7 +182,7 @@ Creating a Scene Detail creates a Detail that exists anywhere it is applicable i
         I light the building on fire, create the scene detail "Burning".
         Everything in the scene is on fire.
     </Bubble>
-    <Bubble right emoji="👑" talker="Game Master" color="teal.800">
+    <Bubble right emoji="👑" talker="Story Teller" color="teal.800">
         Excellent, all characters who end their turn in a "Burning zone" take 1
         damage.
     </Bubble>
@@ -193,7 +193,7 @@ Creating a Scene Detail creates a Detail that exists anywhere it is applicable i
         I cut the power to the lights and create the Scene detail "Darkness
         Calls." The scene has a detail of darkness.
     </Bubble>
-    <Bubble right emoji="👑" talker="Game Master" color="teal.800">
+    <Bubble right emoji="👑" talker="Story Teller" color="teal.800">
         Awesome! Characters cannot see unless another detail allows them to.
     </Bubble>
 </SpeechDialogue>
@@ -203,7 +203,7 @@ Creating a Scene Detail creates a Detail that exists anywhere it is applicable i
         I the boulders down the mountainside and create the Scene detail
         "Landslide". The scene has difficult terrain.
     </Bubble>
-    <Bubble right emoji="👑" talker="Game Master" color="teal.800">
+    <Bubble right emoji="👑" talker="Story Teller" color="teal.800">
         Hell Yeah! Characters must pass a DC 8 Athletics roll to leave this
         zone.
     </Bubble>
@@ -213,37 +213,82 @@ Creating a Scene Detail creates a Detail that exists anywhere it is applicable i
 
 Removing a Detail removes a Detail that exists anywhere it is applicable in the entire scene.
 
-Remove a Detail from the scene
-"I turn on the fire suppression system."
-Player: I turn on the fire suppression system using my Fire Alarm detail with Inspect
+<SpeechDialogue title='"I activate the fire suppression system."'>
+    <Bubble emoji="🕺" talker="Player">
+        I turn on the fire suppression system using my Fire Alarm detail with
+        Inspect
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller" color="teal.800">
+        Sweet, roll for Inspect. On a success, remove all details related to
+        fire and burning from the scene.
+    </Bubble>
+</SpeechDialogue>
 
-DM: Roll Inspect. On a success, remove all details related to fire and burning from the scene
-"I turn out the lights"
-Player: I want to use my Might to destroy the power supply and turn out the lights.
+<SpeechDialogue title='"I power on the flood lights."'>
+    <Bubble emoji="🕺" talker="Player">
+        I want to use Specialty to hack into the lighting system and power on
+        the flood lights.
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller" color="teal.800">
+        Cool, roll for Specialty. On a success, you turn on the lights and
+        remove all details related to darkness from the scene.
+    </Bubble>
+</SpeechDialogue>
 
-DM: Roll Might. On a success, remove all details related to light from the scene
-"I remove the difficult terrain with my bulldozer detail"
-Player: I remove the difficult terrain with Pilot by utilising the bulldozer detail"
-
-DM: Roll Pilot. On a success, remove Landslide detail. Players may now move through this scene normally.
+<SpeechDialogue title='"I flatten the ground with my bulldozer."'>
+    <Bubble emoji="🕺" talker="Player">
+        I jump into the quarry's bulldozer and flatten the ground with Operate a
+        remove the difficult terrain.
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller" color="teal.800">
+        Yeah, definitely! You know how to pilot machinery, roll for Operate and
+        on a success you remove the Landslide detail. With the Landslide gone,
+        characters may move through this scene normally.
+    </Bubble>
+</SpeechDialogue>
 
 #### Upgrade Details
 
-When using an Upgrade action the player combines 2 or more details into a player concept. When creating this Upgrade, the player must describe how these two details combine and what benefit that brings to the players. Upon success, all details used in the creation process are burned and replaced with a concept. As with all Invention actions, the player describes the story of the Upgrade and the DM defines a rule for their Invention.
+When using an Upgrade action the player combines two or more details into a player concept. When creating this Upgrade, the player must describe how these two details combine and what benefit that brings to the players. Upon success, all details used in the creation process are burned and replaced with a concept. As with all Invention actions, the player describes the story of the Upgrade and the DM defines a rule for their Invention.
 
-Upgrade
-"I want to combine the Fire Extinguisher and Office Chair"
-Player: I want to Upgrade the Fire Extinguisher and Office Chair details so I can drag this contraption around with me and put out fires. I want to Assemble this device.
+<SpeechDialogue title='"I want to combine the Fire Extinguisher and Office Chair."'>
+    <Bubble emoji="🕺" talker="Player">
+        I want to Upgrade the Fire Extinguisher and Office Chair details so I
+        can drag this contraption around with me and put out fires. I want to
+        Assemble this device.
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller" color="teal.800">
+        Ha, This is kind of crazy so I am going to increase the DC. However,
+        this might work, roll Assemble. On a success, any tile you explore into
+        will have the "Burning" detail removed.
+    </Bubble>
+</SpeechDialogue>
 
-DM: This is kind of crazy so I am going to increase the DC. However, this might work, roll Assemble. On a success, any tile you explore into will have the "Burning" detail removed.
-"I want to upgrade the Torch and High Bookcase detail to create a spotlight"
-Player: I want to Upgrade the Torch and the High Bookcase details to create a spotlight. To do this, I will use Inspect to find the right place to put it.
+<SpeechDialogue title='"I want to upgrade the Torch and High Bookcase detail to create a spotlight."'>
+    <Bubble emoji="🕺" talker="Player">
+        I want to Upgrade the Torch and the High Bookcase details to create a
+        spotlight. To do this, I will use Inspect to find the right place to put
+        it.
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller" color="teal.800">
+        Hmm... OK it might work, roll Inspect. On a success, characters who
+        share the zone with this detail are immune to all darkness based details
+        and concepts
+    </Bubble>
+</SpeechDialogue>
 
-DM: This might work, roll Inspect. On a success, characters who share the zone with this detail are immune to all darkness based details and concepts. .
-"I want to Upgrade the Bulldozer and Spiked Rocks detail to create a "Spiked Bulldozer"
-Player: I want to Upgrade the Bulldozer and Spiked Rocks detail to create a "Death Machine." I will use my Guts to put this together to not be squeamish about the sheer violence I will cause.
-
-DM: While not normally appropriate, that's hilarious, so I'll allow it. Roll Guts, on a success, for the rest of this game, if you succeed an Overcome while using Operate, succeed with style.
+<SpeechDialogue title='"I want to Upgrade the Bulldozer and Spiked Rocks detail to create a Spiked Bulldozer."'>
+    <Bubble emoji="🕺" talker="Player">
+        I want to Upgrade the Bulldozer and Spiked Rocks detail to create a
+        "Death Machine." I will use my Guts to put this together to not be
+        squeamish about the sheer violence I will cause.
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller" color="teal.800">
+        Hahaha! While not normally appropriate, that's hilarious, so I'll allow
+        it. Roll Guts, on a success, for the rest of this game, if you succeed
+        an Overcome while using Operate, succeed with style.
+    </Bubble>
+</SpeechDialogue>
 
 #### Changing a Concept
 
@@ -267,73 +312,170 @@ Changing a Concept allows players to modify a Concept that already exists within
 -   Does denying this action prevent engaging storytelling?
 -   Is there a way I can construct this with the player where we both get what we want? Compromise is always better than flat denial.
 
-Changing A Concept
-"I turn on the fire suppression system which nullifies the damage from the Burning Concept"
-Changing a Concept comes with strict narrative permission that must be followed in order to adjust said premise.
+**Changing a Concept comes with strict narrative permission that must be followed in order to adjust said premise.**
 
-Player: I want to Inspect a way for my fire suppression system to flood the enemies flamethrower and make them unable to use it.
+<SpeechDialogue title='"I turn on the fire suppression system which nullifies the damage from the Burning Concept."'>
+    <Bubble emoji="🕺" talker="Player">
+        I want to Inspect a way for my fire suppression system to flood the
+        enemies flamethrower and make them unable to use it.
+    </Bubble>
+    <Bubble right emoji="🤔" color="blue.700">
+        Does this make sense in the story world without ruining the story?
+    </Bubble>
+    <Bubble
+        right
+        emoji="👑"
+        talker="Story Teller who likes the idea"
+        color="green.800"
+    >
+        That might work, roll Inspect. On a success, remove all details related
+        to fire and burning from the scene
+    </Bubble>
+    <Bubble
+        right
+        emoji="👑"
+        talker="Story Teller who wants a different narrative"
+        color="red.800"
+    >
+        That wouldn't work here. Here is another suggestion. If not, try
+        something else.
+    </Bubble>
+</SpeechDialogue>
 
-DM: "Does this make sense in the story world without ruining the story?"
+<SpeechDialogue title='"I change the concept of "Darkness Calls" to only affect those who do not have a light detail."'>
+    <Bubble emoji="🕺" talker="Player">
+        I know that I cannot fix the darkness, but I would like to use my
+        Protocol to turn my "Torch" detail into a beacon to make it so that
+        those in the same zone as the torch do not have to roll against
+        "Darkness Calls".
+    </Bubble>
+    <Bubble right emoji="🤔" color="blue.700">
+        Does this make sense in the story world without ruining the story?
+    </Bubble>
+    <Bubble
+        right
+        emoji="👑"
+        talker="Story Teller who likes the idea"
+        color="green.800"
+    >
+        Yeah OK, roll Protocol. On a success, those in the same zone as the
+        torch are not affected by "Darkness Calls".
+    </Bubble>
+    <Bubble
+        right
+        emoji="👑"
+        talker="Story Teller who wants a different narrative"
+        color="red.800"
+    >
+        That wouldn't work here. Here is another suggestion. If not, try
+        something else.
+    </Bubble>
+</SpeechDialogue>
 
-YES: That might work, roll Inspect. On a success, remove all details related to fire and burning from the scene
-
-NO: That wouldn't work here. Here is another suggestion. If not, try something else.
-"I change the concept of "Darkness Calls" to only affect those who do not have a light detail
-Changing a Concept comes with strict narrative permission that must be followed in order to adjust said premise.
-
-Player "I know that I cannot fix the darkness, but I would like to use my Protocol to turn my"Torch" detail into a beacon to make it so that those in the same zone as the torch do not have to roll against "Darkness Calls".
-
-DM: "Does this make sense in the story world without ruining the story?"
-
-YES: That might work, roll Protocol. On a success, those in the same zone as the torch are not affected by "Darkness Calls".
-
-NO: That wouldn't work here. Here is another suggestion. If not, try something else.
-"I wish to change the concept of "Landslide Terrain" to "Secret Tunnels."
-Changing a Concept comes with strict narrative permission that must be followed in order to adjust a premise.
-
-Player: I want to change the concept of Landslide Terrain to Secret Tunnels by using my Construct skill to create passageways that we can pass through.
-
-DM: "Does this make sense in the story world without ruining the story?"
-
-YES: That might work, roll Construct. On a success, Landslide Terrain is replaced with Secret Tunnels which reads "All players in a secret tunnel tile now roll Sneak at +2."
-
-NO: That wouldn't work here. Here is another suggestion. If not, try something else.
+<SpeechDialogue title='"I wish to change the concept of "Landslide Terrain" to "Secret Tunnels."'>
+    <Bubble emoji="🕺" talker="Player">
+        I want to change the concept of Landslide Terrain to Secret Tunnels by
+        using my Assemble skill to create passageways that we can pass through.
+    </Bubble>
+    <Bubble right emoji="🤔" color="blue.700">
+        Does this make sense in the story world without ruining the story?
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller who Agrees" color="green.800">
+        Nice! Roll Assemble, on a success Landslide Terrain is replaced with
+        Secret Tunnels which reads "All players in a secret tunnel tile now roll
+        Sneak at +2."
+    </Bubble>
+    <Bubble
+        right
+        emoji="👑"
+        talker="Story Teller who wants a different narrative"
+        color="red.800"
+    >
+        That wouldn't work here. Here is another suggestion. If not, try
+        something else.
+    </Bubble>
+</SpeechDialogue>
 
 #### Drive a Story Point
 
 Driving a Story point is an action that allows the player to drive themselves into a clear narrative direction for the scene. Driving a Story Point does not mean "I want to win" or "I must survive", it relates to the character's Characteristics and the growth they wish to see from their character. A character could provoke an enemy into taking an action they otherwise wouldn't, direct NPCs or interact in a unique way with story premises. This Invention is to facilitate storytelling that results in a direct follow through of the themes of the game and characters. Driving a Story point can break other pre-built rules of the game (Inventions cannot target enemies) but they must drive the dramatic tensions of the scene further.
 
-Drive a Story Point
-"I order the crew to leave so they don't get caught in the fire"
-Driving a Story Point comes with strict narrative permission that must be followed in order to adjust a premise.
+**Driving a Story Point comes with strict narrative permission that must be followed in order to adjust a premise.**
 
-Player: I want to command the civilians on the ship to escape by using my captainly Presence
+<SpeechDialogue title='"I order the crew to leave so they don&apos;t get caught in the fire."'>
+    <Bubble emoji="🕺" talker="Player">
+        I want to command the civilians on the ship to escape by using my
+        captainly Presence and Charisma.
+    </Bubble>
+    <Bubble right emoji="🤔" color="blue.700">
+        Does this make sense in the story world without ruining the story?
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller who Agrees" color="green.800">
+        Well you are a Captain after all, roll Presence. On a success, the crew
+        of NPC's evacuate the ship.
+    </Bubble>
+    <Bubble
+        right
+        emoji="👑"
+        talker="Story Teller who wants a different narrative"
+        color="red.800"
+    >
+        That wouldn't work here. Here is another suggestion. If not, try
+        something else.
+    </Bubble>
+</SpeechDialogue>
 
-DM: "Does this make sense in the story world without ruining the story?"
+<SpeechDialogue title='"I will be the light through the darkness!"'>
+    <Bubble emoji="🕺" talker="Player">
+        I want to use my Torch detail to create a rallying beacon for the other
+        players. I want the other players to be able to see me. I wish to use
+        Alertness to spot characters in the dark and signal them.
+    </Bubble>
+    <Bubble right emoji="🤔" color="blue.700">
+        Does this make sense in the story world without ruining the story?
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller who Agrees" color="green.800">
+        They don't call you "Eagle Eyes" for nothing! Roll Alertness, on a
+        success whichever zone your character is in ignores the Darkness detail,
+        however as the Concept "Darkness Calls" exists, enemies will also be
+        able to use this concept and now see where you are.
+    </Bubble>
+    <Bubble
+        right
+        emoji="👑"
+        talker="Story Teller who wants a different narrative"
+        color="red.800"
+    >
+        That wouldn't work here. Here is another suggestion. If not, try
+        something else.
+    </Bubble>
+</SpeechDialogue>
 
-YES: That might work, roll Presence. On a success, the crew of NPC's evacuate the ship.
-
-NO: That wouldn't work here. Here is another suggestion. If not, try something else.
-"I will be the light through the darkness"
-Driving a Story Point comes with strict narrative permission that must be followed in order to adjust a premise.
-
-Player: I want to use my Torch detail to create a rallying beacon for the other players. I want the other players to be able to see me. I wish to use Alertness to spot characters in the dark and signal them.
-
-DM: "Does this make sense in the story world without ruining the story?"
-
-YES: That might work, roll Alertness. On a success, whichever zone your character in ignores the Darkness detail, however as the Concept "Darkness Calls" exists, enemies will also be able to use this concept and now see where you are.
-
-NO: That wouldn't work here. Here is another suggestion. If not, try something else.
-"I want to trap the enemy under the falling rocks so they can't leave this zone"
-Driving a Story Point comes with strict narrative permission that must be followed in order to adjust a premise.
-
-Player: I want to trap the enemy under the falling rocks so they can't leave this zone so I can give the innocent time to escape. This coincides with my aspect "Be Strong for the Weak", and so I will use my Might to cause a cave in.
-
-DM: "Does this make sense in the story world without ruining the story?"
-
-YES: This might work, roll Might. On a success, this enemy cannot leave this zone, but neither can you. No characters may enter or leave this zone until this concept is removed.
-
-NO: That wouldn't work here. Here is another suggestion. If not, try something else.
+<SpeechDialogue title='"I want to trap the enemy under the falling rocks so they can&apos;t leave this zone."'>
+    <Bubble emoji="🕺" talker="Player">
+        I want to trap the enemy under the falling rocks so they can't leave
+        this zone so I can give the innocent time to escape. This coincides with
+        my aspect "Be Strong for the Weak", and so I will use my Might to cause
+        a cave in.
+    </Bubble>
+    <Bubble right emoji="🤔" color="blue.700">
+        Does this make sense in the story world without ruining the story?
+    </Bubble>
+    <Bubble right emoji="👑" talker="Story Teller who Agrees" color="green.800">
+        Nice that really fits your character, roll Might. On a success, this
+        enemy cannot leave this zone, but neither can you. No characters may
+        enter or leave this zone until this concept is removed.
+    </Bubble>
+    <Bubble
+        right
+        emoji="👑"
+        talker="Story Teller who wants a different narrative"
+        color="red.800"
+    >
+        That wouldn't work here. Here is another suggestion. If not, try
+        something else.
+    </Bubble>
+</SpeechDialogue>
 
 ## Sense
 

@@ -9,7 +9,7 @@ const SpeechDialogue = ({ children, title }: Props) => {
     return (
         <Box paddingInline="40">
             {title && (
-                <Heading as="h6" size="xl" textAlign="center">
+                <Heading as="h6" size="lg" textAlign="center">
                     {title}
                 </Heading>
             )}
