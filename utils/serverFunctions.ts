@@ -1,6 +1,6 @@
+import { compile } from '@mdx-js/mdx'
 import { promises as fs } from 'fs'
 import matter from 'gray-matter'
-import { serialize } from 'next-mdx-remote/serialize'
 import path from 'path'
 import { ParsedUrlQuery } from 'querystring'
 
@@ -45,7 +45,9 @@ export const slugPageProps = async (
     const filepath = path.join(dirPath, file)
     const fileContents = await fs.readFile(filepath, 'utf8')
     const { content, data } = matter(fileContents)
-    const mdxSource = await serialize(content)
+    const mdxSource = await compile(content, {
+        providerImportSource: '@mdx-js/react',
+    })
 
     const links = await mainPageProps(directoryName)
 

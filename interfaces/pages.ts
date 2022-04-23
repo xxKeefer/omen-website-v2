@@ -1,4 +1,4 @@
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { VFile } from '@mdx-js/mdx/lib/compile'
 
 import { PageLink, PageMeta } from './meta'
 
@@ -8,7 +8,7 @@ export type MainPageProps = {
 
 export type SlugPageProps = {
     page: {
-        content: MDXRemoteSerializeResult<Record<string, unknown>>
+        content: VFile
         data: PageMeta
     }
     links: PageLink[]

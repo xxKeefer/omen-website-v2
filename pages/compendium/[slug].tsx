@@ -1,13 +1,24 @@
 import { MainLayout } from '@components'
 import { SlugPageProps } from '@interfaces'
+import { run } from '@mdx-js/mdx'
+import { MDXProvider } from '@mdx-js/react'
 import { MDXWrapper, OmenMDXStyle } from '@styles'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { MDXRemote } from 'next-mdx-remote'
+import { Fragment, useEffect, useState } from 'react'
+import * as runtime from 'react/jsx-runtime.js'
 import { slugPagePaths, slugPageProps } from 'utils/serverFunctions'
 
 const CompendiumPage: NextPage<SlugPageProps> = ({ page, links }) => {
     const { content, data } = page
+    const [mdxModule, setMdxModule] = useState<any>()
+    const Content = mdxModule ? mdxModule.default : Fragment
+
+    useEffect(() => {
+        ;(async () => {
+            setMdxModule(await run(content, runtime))
+        })()
+    }, [content])
     return (
         <>
             <Head>
@@ -16,9 +27,11 @@ const CompendiumPage: NextPage<SlugPageProps> = ({ page, links }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <MainLayout links={links}>
-                <MDXWrapper>
-                    <MDXRemote {...content} components={OmenMDXStyle} />
-                </MDXWrapper>
+                <MDXProvider components={OmenMDXStyle}>
+                    <MDXWrapper>
+                        <Content />
+                    </MDXWrapper>
+                </MDXProvider>
             </MainLayout>
         </>
     )
