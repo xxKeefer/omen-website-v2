@@ -1,5 +1,5 @@
 import { Box, Heading } from '@chakra-ui/react'
-import { MainLayout } from '@components'
+import { MainLayout, SearchTags } from '@components'
 import { MainPageProps } from '@interfaces'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
@@ -22,6 +22,7 @@ const CompendiumMain: NextPage<MainPageProps> = ({ pages }) => {
                     <Heading size="xl">
                         The guide for game masters to get to know Omen
                     </Heading>
+                    <SearchTags links={pages} />
                 </Box>
 
                 <Box h="full" />
