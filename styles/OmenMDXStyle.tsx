@@ -34,7 +34,7 @@ export const OmenMDXStyle = {
     h3: (props: any) => <Heading as="h3" fontSize={['xl', '3xl']} {...props} />,
     h4: (props: any) => <Heading as="h4" fontSize={['lg', '2xl']} {...props} />,
     h5: (props: any) => <Heading as="h5" fontSize={['lg', 'xl']} {...props} />,
-    h6: (props: any) => <Heading as="h6" fontSize={['lg', 'lg']} {...props} />,
+    h6: (props: any) => <Heading as="h6" fontSize={['md', 'lg']} {...props} />,
     p: (props: any) => (
         <Text as="p" fontSize={['md', 'lg']} paddingBlock="0.5rem" {...props} />
     ),
