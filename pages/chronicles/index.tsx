@@ -19,8 +19,10 @@ const ChroniclesMain: NextPage<MainPageProps> = ({ pages }) => {
 
             <MainLayout links={pages}>
                 <Container as="main">
-                    <Heading size="4xl">Chronicles</Heading>
-                    <Heading size="xl">
+                    <Heading size="4xl" fontSize={['5xl', '6xl']}>
+                        Chronicles
+                    </Heading>
+                    <Heading size="xl" fontSize={['xl', '3xl']}>
                         The tales and stories told in Omen
                     </Heading>
                     <SearchTags links={pages} />

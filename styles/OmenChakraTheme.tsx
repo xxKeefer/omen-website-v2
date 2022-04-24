@@ -9,6 +9,26 @@ export const OmenChakraTheme = extendTheme({
         pre: 'Share Tech Mono, monospace',
         code: 'Share Tech Mono, monospace',
     },
+    textStyles: {
+        h1: {
+            fontSize: ['3xl', '5xl'],
+        },
+        h2: {
+            fontSize: ['2xl', '4xl'],
+        },
+        h3: {
+            fontSize: ['xl', '3xl'],
+        },
+        h4: {
+            fontSize: ['lg', '2xl'],
+        },
+        h5: {
+            fontSize: ['lg', 'xl'],
+        },
+        h6: {
+            fontSize: ['lg', 'lg'],
+        },
+    },
     styles: {
         global: {
             body: {
@@ -19,8 +39,8 @@ export const OmenChakraTheme = extendTheme({
                 color: 'white',
             },
             'h1, h2, h3, h4, h5, h6': {
-                paddingTop: '2rem',
-                paddingBottom: '1rem',
+                paddingTop: ['1.5rem', '2rem'],
+                paddingBottom: ['0.1rem', '1rem'],
             },
             'h1, h2, h3': {
                 color: 'pink.500',
@@ -52,8 +72,8 @@ export const OmenChakraTheme = extendTheme({
                 paddingInline: '0.25rem',
             },
             'ul, ol': {
-                paddingLeft: '1rem',
-                paddingBlock: '0.5rem',
+                paddingLeft: ['0.25rem', '1rem'],
+                paddingBlock: ['0.25rem', '0.5rem'],
             },
             a: {
                 color: 'pink.500',
@@ -62,7 +82,7 @@ export const OmenChakraTheme = extendTheme({
                 '&::-webkit-scrollbar': {
                     backgroundColor: 'teal.900',
                     borderRadius: '15px',
-                    width: '10px !important',
+                    width: ['2px !important', '10px !important'],
                 },
                 '&::-webkit-scrollbar-thumb': {
                     backgroundColor: 'pink.500',

@@ -21,27 +21,27 @@ const Home: NextPage = () => {
             <VStack h="100vh" padding={8}>
                 <Box as="main">
                     <Heading size="4xl">Omen RPG</Heading>
-                    <Heading size="xl">
+                    <Heading size="xl" fontSize={['xl', '3xl']}>
                         The story driven role playing game
                     </Heading>
+                    <VStack mt="8">
+                        <BigBlockButton
+                            text="Enchiridion"
+                            subtext="For Players: a book containing essential information on a subject"
+                            onClick={() => router.push(ROUTES.ENCHIRIDION)}
+                        />
+                        <BigBlockButton
+                            text="Compendium"
+                            subtext="For Story Tellers: a collection of concise but detailed information about a particular subject"
+                            onClick={() => router.push(ROUTES.COMPENDIUM)}
+                        />
+                        <BigBlockButton
+                            text="Chronicles"
+                            subtext="For Lore Junkies: a written account of important or historical events in the order of their occurrence."
+                            onClick={() => router.push(ROUTES.CHRONICLES)}
+                        />
+                    </VStack>
                 </Box>
-                <VStack>
-                    <BigBlockButton
-                        text="Enchiridion (For Players)"
-                        subtext="a book containing essential information on a subject"
-                        onClick={() => router.push(ROUTES.ENCHIRIDION)}
-                    />
-                    <BigBlockButton
-                        text="Compendium (For Game Masters)"
-                        subtext="a collection of concise but detailed information about a particular subject"
-                        onClick={() => router.push(ROUTES.COMPENDIUM)}
-                    />
-                    <BigBlockButton
-                        text="Chronicles (For Lore Junkies)"
-                        subtext="a written account of important or historical events in the order of their occurrence."
-                        onClick={() => router.push(ROUTES.CHRONICLES)}
-                    />
-                </VStack>
                 <Box h="full" />
                 <Box as="footer">
                     <Text size="xs">

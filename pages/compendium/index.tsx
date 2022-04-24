@@ -18,8 +18,10 @@ const CompendiumMain: NextPage<MainPageProps> = ({ pages }) => {
             </Head>
             <MainLayout links={pages}>
                 <Container as="main">
-                    <Heading size="4xl">Compendium</Heading>
-                    <Heading size="xl">
+                    <Heading size="4xl" fontSize={['5xl', '6xl']}>
+                        Compendium
+                    </Heading>
+                    <Heading size="xl" fontSize={['xl', '3xl']}>
                         The guide for game masters to get to know Omen
                     </Heading>
                     <SearchTags links={pages} />

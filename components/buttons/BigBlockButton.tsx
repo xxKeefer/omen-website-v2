@@ -17,15 +17,21 @@ export const BigBlockButton = ({ onClick, text, subtext }: Props) => {
             border="2px solid"
             borderColor="pink.500"
             borderRadius="8px"
-            padding="1rem"
+            padding={['0.5rem', '1rem']}
             cursor="pointer"
             _hover={{
                 borderColor: 'pink.900',
                 bg: 'pink.700',
             }}
         >
-            <Text fontSize="4xl">{text}</Text>
-            {subtext && <Text fontSize="sm">{subtext}</Text>}
+            <Text textAlign="left" fontSize={['2xl', '4xl']}>
+                {text}
+            </Text>
+            {subtext && (
+                <Text textAlign="left" fontSize={['xs', 'sm']}>
+                    {subtext}
+                </Text>
+            )}
         </VStack>
     )
 }

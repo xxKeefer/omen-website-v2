@@ -18,8 +18,10 @@ const EnchiridionMain: NextPage<MainPageProps> = ({ pages }) => {
             </Head>
             <MainLayout links={pages}>
                 <Container as="main" h="full">
-                    <Heading size="4xl">Enchiridion</Heading>
-                    <Heading size="xl">
+                    <Heading size="4xl" fontSize={['5xl', '6xl']}>
+                        Enchiridion
+                    </Heading>
+                    <Heading size="xl" fontSize={['xl', '3xl']}>
                         The guide for players to get started with Omen
                     </Heading>
                     <SearchTags links={pages} />
