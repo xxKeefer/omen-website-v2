@@ -1,9 +1,10 @@
-import { Box, Divider, Flex, Heading, Link, VStack } from '@chakra-ui/react'
+import { Divider, Flex, Heading, VStack } from '@chakra-ui/react'
 import { ROUTES } from '@constants'
 import { PageLink } from '@interfaces'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { byOrderThenRank } from 'utils'
+
+import { NavLinksColumn } from './NavLinksColumn'
 
 type Props = {
     links: PageLink[]
@@ -12,13 +13,9 @@ type Props = {
 export const SidePanel = ({ links }: Props) => {
     const router = useRouter()
     const book = links[0].book
-    const chapters = [
-        ...Array.from(
-            new Set(links.sort(byOrderThenRank).map((link) => link.chapter)),
-        ),
-    ]
+
     return (
-        <VStack width="20%" bg="gray.800">
+        <VStack width="full" bg="gray.800" maxH="100vh">
             <Flex align="center" direction="column">
                 <Heading
                     size="4xl"
@@ -39,7 +36,6 @@ export const SidePanel = ({ links }: Props) => {
                         pt="0"
                         pb="0"
                         color="teal.300"
-                        textTransform="capitalize"
                         cursor="pointer"
                         onClick={() => router.push(`/${book.toLowerCase()}`)}
                     >
@@ -48,27 +44,7 @@ export const SidePanel = ({ links }: Props) => {
                 )}
             </Flex>
             <Divider />
-            <VStack overflowY="scroll" w="full" h="full">
-                {chapters.map((chapter) => (
-                    <Box key={chapter} textAlign="left" w="full" pl="4">
-                        <Heading size="md" pt="4">
-                            {chapter}
-                        </Heading>
-                        <VStack align="flex-start" pl="4">
-                            {links
-                                .filter((link) => link.chapter === chapter)
-                                .map(({ title, path }) => (
-                                    <Link
-                                        key={path}
-                                        onClick={() => router.push(path)}
-                                    >
-                                        {title}
-                                    </Link>
-                                ))}
-                        </VStack>
-                    </Box>
-                ))}
-            </VStack>
+            <NavLinksColumn links={links} />
         </VStack>
     )
 }
