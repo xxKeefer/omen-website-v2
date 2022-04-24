@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Container, Heading } from '@chakra-ui/react'
 import { MainLayout, SearchTags } from '@components'
 import { MainPageProps } from '@interfaces'
 import type { GetStaticProps, NextPage } from 'next'
@@ -18,13 +18,13 @@ const ChroniclesMain: NextPage<MainPageProps> = ({ pages }) => {
             </Head>
 
             <MainLayout links={pages}>
-                <Box as="main">
+                <Container as="main">
                     <Heading size="4xl">Chronicles</Heading>
                     <Heading size="xl">
                         The tales and stories told in Omen
                     </Heading>
                     <SearchTags links={pages} />
-                </Box>
+                </Container>
 
                 <Box h="full" />
             </MainLayout>

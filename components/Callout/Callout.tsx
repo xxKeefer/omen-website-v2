@@ -1,4 +1,12 @@
-import { BackgroundProps, Box, Center, HStack, VStack } from '@chakra-ui/react'
+import {
+    BackgroundProps,
+    Box,
+    Center,
+    HStack,
+    Text,
+    useMediaQuery,
+    VStack,
+} from '@chakra-ui/react'
 import React from 'react'
 
 type Props = {
@@ -14,9 +22,16 @@ export const Callout = ({
     heading,
     color = 'pink.900',
 }: Props) => {
+    const [isMobile] = useMediaQuery('(max-width: 1024px)')
+
     return (
         <Center justifyContent="left">
-            <VStack bg={color} borderRadius="md" maxW="100%" m={10}>
+            <VStack
+                bg={color}
+                borderRadius="md"
+                maxW="100%"
+                m={isMobile ? 1 : 10}
+            >
                 <HStack
                     bg="blackAlpha.300"
                     justify="left"
@@ -33,13 +48,23 @@ export const Callout = ({
                     >
                         {emoji}
                     </Box>
-                    <Box as="span" fontSize="xl" fontWeight="bold">
+                    <Text
+                        as="span"
+                        fontSize={isMobile ? 'md' : 'xl'}
+                        fontWeight="bold"
+                    >
                         {heading}
-                    </Box>
+                    </Text>
                 </HStack>
-                <Box maxW="100%" p="1rem" pt="0.5rem" as="span" fontSize="lg">
+                <Text
+                    maxW="100%"
+                    p="1rem"
+                    pt="0.5rem"
+                    as="span"
+                    fontSize={isMobile ? 'md' : 'lg'}
+                >
                     {children}
-                </Box>
+                </Text>
             </VStack>
         </Center>
     )

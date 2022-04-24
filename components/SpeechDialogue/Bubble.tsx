@@ -1,4 +1,10 @@
-import { BackgroundProps, Box, Flex, Text, VStack } from '@chakra-ui/react'
+import {
+    BackgroundProps,
+    Flex,
+    Text,
+    useMediaQuery,
+    VStack,
+} from '@chakra-ui/react'
 import React from 'react'
 
 type Props = {
@@ -16,6 +22,10 @@ export const Bubble = ({
     emoji,
     color = 'pink.700',
 }: Props) => {
+    const [isMobile] = useMediaQuery('(max-width: 1024px)')
+
+    const circle = isMobile ? '32px' : '50px'
+
     return (
         <Flex
             w="fit-content"
@@ -33,10 +43,10 @@ export const Bubble = ({
                     justify="center"
                     p="4"
                     borderRadius="50%"
-                    h="50px"
-                    w="50px"
+                    h={circle}
+                    w={circle}
                 >
-                    <Text fontSize="3xl">{emoji}</Text>
+                    <Text fontSize={isMobile ? 'xl' : '3xl'}>{emoji}</Text>
                 </Flex>
             )}
             <VStack>
@@ -45,7 +55,8 @@ export const Bubble = ({
                     marginInline="8px"
                     bg={color}
                     borderRadius="8px"
-                    minH="50px"
+                    minH={circle}
+                    fontSize={isMobile ? 'sm' : 'md'}
                 >
                     {children}
                 </Text>

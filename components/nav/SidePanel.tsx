@@ -15,7 +15,7 @@ export const SidePanel = ({ links }: Props) => {
     const book = links[0].book
 
     return (
-        <VStack width="full" bg="gray.800" maxH="100vh">
+        <VStack width="full" bg="gray.800" h="100vh">
             <Flex align="center" direction="column">
                 <Heading
                     size="4xl"

@@ -1,4 +1,4 @@
-import { Box, Heading, VStack } from '@chakra-ui/react'
+import { Box, Heading, useMediaQuery, VStack } from '@chakra-ui/react'
 import React from 'react'
 
 import { Bubble } from './Bubble'
@@ -6,8 +6,10 @@ import { Bubble } from './Bubble'
 type Props = { children?: React.ReactNode; title?: string }
 
 const SpeechDialogue = ({ children, title }: Props) => {
+    const [isMobile] = useMediaQuery('(max-width: 1024px)')
+
     return (
-        <Box paddingInline="40">
+        <Box>
             {title && (
                 <Heading as="h6" size="lg" textAlign="center">
                     {title}
@@ -16,7 +18,7 @@ const SpeechDialogue = ({ children, title }: Props) => {
             <VStack
                 bgColor="whiteAlpha.300"
                 w="full"
-                padding="8"
+                padding={isMobile ? '2' : '8'}
                 borderRadius="16px"
             >
                 {children}

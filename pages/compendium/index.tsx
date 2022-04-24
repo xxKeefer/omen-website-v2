@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Container, Heading } from '@chakra-ui/react'
 import { MainLayout, SearchTags } from '@components'
 import { MainPageProps } from '@interfaces'
 import type { GetStaticProps, NextPage } from 'next'
@@ -17,13 +17,13 @@ const CompendiumMain: NextPage<MainPageProps> = ({ pages }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <MainLayout links={pages}>
-                <Box as="main">
+                <Container as="main">
                     <Heading size="4xl">Compendium</Heading>
                     <Heading size="xl">
                         The guide for game masters to get to know Omen
                     </Heading>
                     <SearchTags links={pages} />
-                </Box>
+                </Container>
 
                 <Box h="full" />
             </MainLayout>

@@ -18,7 +18,7 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <VStack h="100vh" paddingBlock={8}>
+            <VStack h="100vh" padding={8}>
                 <Box as="main">
                     <Heading size="4xl">Omen RPG</Heading>
                     <Heading size="xl">
