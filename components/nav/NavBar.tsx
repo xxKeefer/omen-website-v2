@@ -30,28 +30,26 @@ export const NavBar = ({ links }: Props) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
-        <>
-            <Box as="section" bg="pink.500">
-                <Box as="nav" bg="bg-surface">
-                    <HStack spacing="4" justify="space-between" px="4">
-                        <Heading
-                            py="2"
-                            size="2xl"
-                            color="gray.900"
-                            fontFamily="Lobster"
-                            cursor="pointer"
-                            onClick={() => router.push(ROUTES.HOME)}
-                        >
-                            Omen
-                        </Heading>
-                        <IconButton
-                            variant="ghost"
-                            icon={<GrMenu fontSize="32px" />}
-                            onClick={onOpen}
-                            aria-label="Open Menu"
-                        />
-                    </HStack>
-                </Box>
+        <Box as="section" bg="pink.500" w="full">
+            <Box as="nav" bg="bg-surface">
+                <HStack spacing="4" justify="space-between" px="4">
+                    <Heading
+                        py="2"
+                        size="2xl"
+                        color="gray.900"
+                        fontFamily="Lobster"
+                        cursor="pointer"
+                        onClick={() => router.push(ROUTES.HOME)}
+                    >
+                        Omen
+                    </Heading>
+                    <IconButton
+                        variant="ghost"
+                        icon={<GrMenu fontSize="32px" />}
+                        onClick={onOpen}
+                        aria-label="Open Menu"
+                    />
+                </HStack>
             </Box>
             <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
                 <DrawerOverlay />
@@ -74,6 +72,6 @@ export const NavBar = ({ links }: Props) => {
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
-        </>
+        </Box>
     )
 }

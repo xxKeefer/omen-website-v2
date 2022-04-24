@@ -14,23 +14,19 @@ export const MainLayout = ({ children, links }: Props) => {
     const [isMobile] = useMediaQuery('(max-width: 1024px)')
 
     return (
-        <Box>
-            {isMobile && <NavBar links={links} />}
-            <HStack h="full" align="stretch" spacing={0} overflowY="hidden">
-                {!isMobile && (
-                    <Box w="20%" minW="300px">
-                        <SidePanel links={links} />
-                    </Box>
-                )}
-                <VStack
-                    w={isMobile ? 'full' : '80%'}
-                    maxH="100vh"
-                    overflowY="scroll"
-                >
+        <HStack h="100vh" align="stretch" spacing={0} overflowY="hidden">
+            {!isMobile && (
+                <Box w="20%" minW="300px">
+                    <SidePanel links={links} />
+                </Box>
+            )}
+            <VStack w={isMobile ? 'full' : '80%'}>
+                {isMobile && <NavBar links={links} />}
+                <VStack w="full" h="full" overflowY="scroll">
                     {children}
                     <Footer />
                 </VStack>
-            </HStack>
-        </Box>
+            </VStack>
+        </HStack>
     )
 }
